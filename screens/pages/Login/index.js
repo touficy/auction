@@ -1,7 +1,7 @@
 /* Libraries That Needed */
 import React, { useReducer, useEffect, useCallback, useState } from 'react';
 
-import { View, Text, Image, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Alert, ActivityIndicator, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Card from '../../../components/UI/Card';
 import Input from '../../../components/UI/Input';
 import Button from '../../../components/UI/Button';
@@ -80,55 +80,59 @@ const Login = ({ navigation }) => {
 
     };
     return (
-        <View style={styles.screen}>
-            <View style={styles.loginPgCont}>
-                <Image style={styles.logoStyle} resizeMode="contain" source={require('../../../assets/imgs/logo.png')} />
-                <Card style={styles.card}>
-                    <Input
-                        id="account"
-                        icon={Platform.OS == "android" ? "md-person" : "ios-person"}
-                        keyboardType="email-address"
-                        placeholder="Account"
-                        placeholderTextColor={colors.grey}
-                        required
-                        email
-                        autoCapitalize="none"
-                        errorText="Please enter a valid Account."
-                        onInputChange={inputChangeHandler}
-                        initialValue=""
-                        parentStyle={styles.accountCont}
-                    />
-                    <Input
-                        id="password"
-                        icon={Platform.OS == "android" ? "md-lock" : "ios-lock"}
-                        placeholder="Password"
-                        placeholderTextColor={colors.grey}
-                        keyboardType="default"
-                        secureTextEntry
-                        required
-                        minLength={5}
-                        autoCapitalize="none"
-                        errorText="Please enter a valid password."
-                        onInputChange={inputChangeHandler}
-                        initialValue=""
-                    />
-                </Card>
-                <Button onPress={submitLogin}>
-                    {
-                        isLoading ?
-                            <ActivityIndicator size="small" color={colors.primary} />
-                            :
-                            <Text style={styles.logintxt}>Log in</Text>
-                    }
-                </Button>
-                <TouchableOpacity style={styles.signupBtn} onPress={() => { navigation.navigate('Signup') }}>
-                    <Text style={styles.signupText}>Sign up</Text>
-                </TouchableOpacity>
-            </View>
-            <TouchableOpacity style={[styles.signupBtn, { alignSelf: 'flex-end' }]} onPress={() => { }}>
-                <Text style={[styles.signupText, { color: '#d9d9db' }]}>I FORGET MY PASSWORD</Text>
-            </TouchableOpacity>
-        </View>
+        <ScrollView style={styles.pageCont}>
+            <KeyboardAvoidingView style={styles.pageCont} behavior='padding' keyboardVerticalOffset={20} >
+                <View style={styles.screen}>
+                    <View style={styles.loginPgCont}>
+                        <Image style={styles.logoStyle} resizeMode="contain" source={require('../../../assets/imgs/logo.png')} />
+                        <Card style={styles.card}>
+                            <Input
+                                id="account"
+                                icon={Platform.OS == "android" ? "md-person" : "ios-person"}
+                                keyboardType="email-address"
+                                placeholder="Account"
+                                placeholderTextColor={colors.grey}
+                                required
+                                email
+                                autoCapitalize="none"
+                                errorText="Please enter a valid Account."
+                                onInputChange={inputChangeHandler}
+                                initialValue=""
+                                parentStyle={styles.accountCont}
+                            />
+                            <Input
+                                id="password"
+                                icon={Platform.OS == "android" ? "md-lock" : "ios-lock"}
+                                placeholder="Password"
+                                placeholderTextColor={colors.grey}
+                                keyboardType="default"
+                                secureTextEntry
+                                required
+                                minLength={5}
+                                autoCapitalize="none"
+                                errorText="Please enter a valid password."
+                                onInputChange={inputChangeHandler}
+                                initialValue=""
+                            />
+                        </Card>
+                        <Button onPress={submitLogin}>
+                            {
+                                isLoading ?
+                                    <ActivityIndicator size="small" color={colors.primary} />
+                                    :
+                                    <Text style={styles.logintxt}>Log in</Text>
+                            }
+                        </Button>
+                        <TouchableOpacity style={styles.signupBtn} onPress={() => { navigation.navigate('Signup') }}>
+                            <Text style={styles.signupText}>Sign up</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <TouchableOpacity style={[styles.signupBtn, { alignSelf: 'flex-end' }]} onPress={() => { }}>
+                        <Text style={[styles.signupText, { color: '#d9d9db' }]}>I FORGET MY PASSWORD</Text>
+                    </TouchableOpacity>
+                </View>
+            </KeyboardAvoidingView>
+        </ScrollView>
     );
 }
 export { Login };

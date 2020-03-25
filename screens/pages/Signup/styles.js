@@ -2,9 +2,12 @@ import { StyleSheet } from 'react-native';
 import COLORS from '../../../constants/colors';
 
 export default StyleSheet.create({
+    pageCont:{
+        flex:1,
+        backgroundColor:COLORS.background
+    },
     screen: {
         flex: 1,
-        backgroundColor: COLORS.background,
         alignItems: 'center',
         paddingVertical:50
     },

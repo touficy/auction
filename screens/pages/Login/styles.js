@@ -2,20 +2,24 @@ import { StyleSheet } from 'react-native';
 import COLORS from '../../../constants/colors';
 
 export default StyleSheet.create({
-    screen: {
+    pageCont: {
         flex: 1,
         backgroundColor: COLORS.background,
-        justifyContent: 'space-between'
+    },
+    screen: {
+        flex: 1,
+        justifyContent:'center',
+        paddingVertical: 50
     },
     loginPgCont: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
     },
-    centered:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center'
+    centered: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     card: {
         width: '90%',
@@ -33,7 +37,7 @@ export default StyleSheet.create({
     },
     logintxt: {
         color: COLORS.primary,
-        fontFamily:'open-sans'
+        fontFamily: 'open-sans'
     },
     signupBtn: {
         width: '90%',
