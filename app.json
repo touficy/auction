@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Auction",
+    "slug": "Auction",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ahmedsamir.Auction",
+      "buildNumber": "1..0"
+    },
+    "android": {
+      "package": "com.ahmedsamir.Auction",
+      "versionCode": 1
+    },
+    "description": "This is the debug version for the task i used expo to facilitate the process of testing the app and avoid the hassle of the different environments configuration . /* the steps to test the app */ 1- Download Expo App from The Store 2- scan the QR Code"
+  }
+}
